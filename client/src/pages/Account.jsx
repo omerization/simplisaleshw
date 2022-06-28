@@ -23,7 +23,7 @@ const Account = (props) => {
     const userInfo = useSelector((state) => state.userInfo);
 
     useEffect(() => {
-        dispatch(getUserInfo(authData.token));
+        dispatch(getUserInfo(authData));
     }, [dispatch]);
 
 

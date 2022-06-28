@@ -21,7 +21,7 @@ const PastOrders = (props) => {
     const pastOrders = useSelector((state) => state.pastOrders);
 
     useEffect(() => {
-        dispatch(getPastOrders(authData.token));
+        dispatch(getPastOrders(authData));
     }, [dispatch]);
 
     useEffect(() => {

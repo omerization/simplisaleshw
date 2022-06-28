@@ -1,8 +1,38 @@
-import { GraphQLClient, gql } from 'graphql-request';
+import { GraphQLClient, gql, request } from 'graphql-request';
 
 
 const MOBILE_API_URL = process.env.REACT_APP_MOBILE_API_URL;
 const client = new GraphQLClient(MOBILE_API_URL);
+
+export const signIn = async (formData) => {
+
+  const { email, password } = formData;
+
+
+  
+  try {
+
+    const mutation = gql`mutation loginWithEmail ($email: String!, $password: String!) {
+        loginWithEmail(email: $email, password: $password) {
+          token
+        }
+      }`
+
+    const variables = {
+      email,
+      password
+    }
+
+    const data = await request("https://simplicityhw.cotunnel.com/graphql", mutation, variables);
+
+    const token = data.loginWithEmail.token;
+
+    return {data: token};
+
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 export const getRestaurants = async (userToken) => {
 

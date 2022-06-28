@@ -20,7 +20,7 @@ const PastOrders = (props) => {
     const restaurants = useSelector((state) => state.restaurants);
 
     useEffect(() => {
-        dispatch(getRestaurants(authData.token));
+        dispatch(getRestaurants(authData));
     }, [dispatch]);
 
     useEffect(() => {

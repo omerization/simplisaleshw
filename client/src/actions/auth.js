@@ -5,11 +5,12 @@ import { GET_USER_INFO } from 'constants/actionTypes';
 export const signin = (formData, router) => async (dispatch) => {
   try {
 
-    const { data } = await api.signIn(formData);
+    const { data } = await mobileAPI.signIn(formData);
+
 
     dispatch({ type: 'SIGN_IN', payload: data });
 
-    localStorage.setItem('usId', JSON.stringify({ ...data }));
+    localStorage.setItem('usId', data);
 
     router('/');
   } catch (error) {
