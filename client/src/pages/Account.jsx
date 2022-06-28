@@ -26,9 +26,7 @@ const Account = (props) => {
         dispatch(getUserInfo(authData.token));
     }, [dispatch]);
 
-    useEffect(() => {
-        console.log(userInfo);
-    }, [userInfo])
+
 
 
     if (userInfo === null) {
