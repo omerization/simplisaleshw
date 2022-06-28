@@ -1,0 +1,8 @@
+.header-avatar-icon {
+    background-color: rgb(19, 19, 211);   
+    margin-bottom: 5px;
+}
+
+.header-avatar-icon:hover {
+    cursor: pointer;
+}
